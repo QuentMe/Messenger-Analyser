@@ -8,11 +8,15 @@ import json
 import glob
 import os
 
+folder_name = input("Enter the name of the folder: ")
+
 file = os.path.abspath("reader.py")
 file = os.path.dirname(file)
+file = file+"\\"+folder_name
+
 fileCounter = len(glob.glob1(file,"*.json"))
 
-f = open("message_1.json","r")
+f = open(file+"\message_1.json","r")
 data = json.load(f)
 a = len(data["participants"])
 counter = [0]*(a+1)
@@ -20,7 +24,7 @@ last = ""
 
 for file_iteration in range(1,fileCounter+1):
     
-    f = open("message_"+str(file_iteration)+".json","r")
+    f = open(file+"\message_"+str(file_iteration)+".json","r")
     
     data = json.load(f)
     
